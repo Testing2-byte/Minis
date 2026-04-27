@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ministranten
+    env: node
+    buildCommand: npm run install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 3001
+    disk:
+      name: db
+      mountPath: /data
+      sizeGB: 1
